@@ -23,7 +23,7 @@ services:
     restart: "no" # important: don't restart on failure/success
 
   api:
-    image: okp980/pine-api:${PINE_API_TAG}
+    image: pineafrica/pine-api:${PINE_API_TAG}
     depends_on:
       redis:
         condition: service_started
@@ -39,7 +39,7 @@ services:
       - media_volume:/app/media
     restart: unless-stopped
   celery:
-    image: okp980/pine-api:${PINE_API_TAG}
+    image: pineafrica/pine-api:${PINE_API_TAG}
     env_file:
       - .env
     environment:
